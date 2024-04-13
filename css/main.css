@@ -1,111 +1,112 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    height: 2000px;
-    background-image: url('../images/testing.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+.manga-text {
+    position: absolute;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    font-size: 10px;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    z-index: 3; /* Ensure manga text appears above comic panels */
 }
 
-.container {
+.left {
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
+}
+
+.right {
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
+}
+
+.center {
+    top: 50%; /* Place text in the center */
+    left: 50%; /* Place text in the center */
+    transform: translate(-50%, -50%); /* Center text */
+    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
+}
+
+.dynamic {
+    background-color: #f00; /* Red background color for dynamic bubbles */
+    font-weight: bold; /* Bold font for dynamic bubbles */
+}
+
+.comic-panel {
     position: relative;
+    width: 100%;
+    height: auto; /* Change height to auto to accommodate varying panel heights */
+    overflow: hidden;
+}
+
+.background-image {
+    position: relative; /* Change to relative */
+}
+
+.background-image img {
+    width: 100%;
+    height: auto;
+    display: block; /* Ensure the image behaves as a block element */
+    position: relative; /* Ensure the image stays within its parent */
+    z-index: 1; /* Lower z-index to make sure it's behind text bubbles */
 }
 
 .text-bubble {
     position: absolute;
-    opacity: 0;
-    background-color: #FFF;
-    border: 2px solid #000;
-    padding: 15px;
-    border-radius: 10px;
-    max-width: 400px; /* Double the max-width */
-    animation: fadeIn 10s forwards, typing 10s steps(40) forwards, scaleUp 10s forwards; /* Include scaleUp animation */
-    font-size: 32px; /* Double the font size */
-    line-height: 1.5;
+    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Use a comic-style font */
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px; /* Rounded corners for the rectangles */
+    background-color: #000; /* Black background color */
+    z-index: 2; /* Ensure the text bubbles appear above the images */
 }
 
-.bubble-3 {
-    top: 100px;
-    left: 60%;
-    transform: translateX(-50%);
-    animation-delay: 1s;
+
+
+.dynamic {
+    /* Example styles for dynamic text bubble */
+    animation: pulse 0.5s infinite alternate;
 }
 
-.bubble-1 {
-    top: 700px;
-    left: 60%;
-    animation-delay: 1s;
 
+/* Adjust the position of manga text bubbles */
+.manga-text.left {
+    top: 20px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the left position as needed */
 }
 
-.bubble-2 {
-    top: 200px;
-    left: 10%;
-    animation-delay: 3s;
+.manga-text.right {
+    top: 20px; /* Adjust the top position as needed */
+    right: 20px; /* Adjust the right position as needed */
 }
 
-.bubble-4 {
-    top: 300px;
-    left: 80%;
-    animation-delay: 5s;
+.manga-text.center {
+    top: 50%; /* Place text in the center */
+    left: 50%; /* Place text in the center */
+    transform: translate(-50%, -50%); /* Center text */
 }
 
-.zima-text {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.5);
-    opacity: 0;
-    animation: slideIn 1s forwards, scaleUp 1s forwards, flicker 0.1s infinite alternate, changeColor 3s forwards;
-    color: black;
-}
 
-@keyframes slideIn {
-    from {
-        left: -100%;
-    }
-    to {
-        left: 50%;
-    }
-}
-
-@keyframes scaleUp {
+@keyframes pulse {
     from {
         transform: scale(1);
     }
     to {
-        transform: scale(1.5);
+        transform: scale(1.1);
     }
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
+@media screen and (min-width: 768px) {
+    /* Adjust styles for tablets and desktop */
+    .text-bubble {
+        font-size: 20px; /* Example adjustment for larger screens */
     }
 }
 
-@keyframes flicker {
-    0% {
-        opacity: 0.8;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.8;
-    }
-}
-
-@keyframes changeColor {
-    from {
-        color: black;
-    }
-    to {
-        color: orange;
+@media screen and (min-width: 1024px) {
+    /* Adjust styles for larger desktop screens */
+    .text-bubble {
+        font-size: 24px; /* Example adjustment for larger screens */
     }
 }

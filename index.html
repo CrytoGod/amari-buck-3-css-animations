@@ -3,18 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scrolling Text Bubbles</title>
-    <link href="css/main.css" rel="stylesheet" type="text/css">
+    <title>Comic</title>
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 </head>
 <body>
-    <div class="zima-text">Please enjoy Zima Comic</div>
-    <div class="container">
-        <div class="text-bubble bubble-1">This is some text in bubble 1</div>
-        <div class="text-bubble bubble-2">I wanted to do any advice is appreciated</div>
-        <div class="text-bubble bubble-3">Hey Rob I wanted to overlay this in a mini Zima comic</div>
-        <!-- Add more text bubbles as needed -->
-    </div>
-    
-    <script src="script.js"></script>
+    <section class="grid-con">
+        <!-- Comic panels -->
+        <div class="comic-panel col-span-full">
+            <div class="background-image">
+                <img srcset="images/panel-1-mb.jpg 412w,
+                             images/panel-1-tb.jpg 768w,
+                             images/panel-1-desk.jpg 1200w"
+                     sizes="(max-width: 412px) 100vw,
+                            (max-width: 768px) 100vw,
+                            1024px"
+                     src="images/panel-1-desk.jpg" alt="Comic Panel">
+                <!-- Left manga text bubbles -->
+                <div class="manga-text left">Oh crap all I wanted was some zima</div>
+                <div class="manga-text left">There</div>
+                <!-- Right manga text bubbles -->
+                <div class="manga-text right dynamic">Woosh</div>
+                <div class="manga-text left dynamic">Alert!!!!!!!!</div>
+                <div class="manga-text center">Protect zima!!!!!</div>
+                <div class="manga-text right">Oh damn</div>
+            </div>
+            <!-- Text bubbles for characters -->
+            
+        </div>
+    </section>
+
+    <section class="grid-con">
+        <div class="comic-panel col-span-full">
+            <div class="background-image">
+                <img srcset="images/panel-2-mb.jpg 412w,
+                             images/panel-2-tb.jpg 768w,
+                             images/panel-2-desk.jpg 1200w"
+                     sizes="(max-width: 412px) 100vw,
+                            (max-width: 768px) 100vw,
+                            1024px"
+                     src="images/panel-2-desk.jpg" alt="Comic Panel">
+            </div>
+            
+        </div>
+    </section>
 </body>
 </html>
