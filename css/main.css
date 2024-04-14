@@ -1,112 +1,141 @@
-.manga-text {
-    position: absolute;
-    font-family: 'Comic Sans MS', 'Arial', sans-serif;
-    font-size: 10px;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 10px;
-    z-index: 3; /* Ensure manga text appears above comic panels */
-}
 
-.left {
-    top: 20px; /* Adjust the top position as needed */
-    left: 20px; /* Adjust the left position as needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
-}
+/* comic */
 
-.right {
-    top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
-    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
-}
-
-.center {
-    top: 50%; /* Place text in the center */
-    left: 50%; /* Place text in the center */
-    transform: translate(-50%, -50%); /* Center text */
-    background-color: rgba(0, 0, 0, 0.5); /* Example background color with transparency */
-}
-
-.dynamic {
-    background-color: #f00; /* Red background color for dynamic bubbles */
-    font-weight: bold; /* Bold font for dynamic bubbles */
-}
-
-.comic-panel {
-    position: relative;
-    width: 100%;
-    height: auto; /* Change height to auto to accommodate varying panel heights */
-    overflow: hidden;
-}
-
+/* panel-1 */
 .background-image {
-    position: relative; /* Change to relative */
+    position: relative;
+    
 }
+
+
+.svg-element {
+    position: relative; /* Change to relative */
+    z-index: 2; /* Ensure SVG elements appear above the background image */
+    margin-top: -100px; /* Adjust the top margin as needed */
+    margin-left: -100px; /* Adjust the left margin as needed */
+    width: 100px;
+    height: auto;
+   
+    animation: slide 2s ease-in-out infinite;  /*Apply the slide animation */
+}
+
+/* Adjust the position of each SVG element as needed */
+#svg-element-1 { bottom: 420px; left: 250px; }
+#svg-element-2 { bottom: 250px; left: 470px; width:50px;}
+#svg-element-3 { bottom: 100px; left: 220px;
+width: 50px; }
+#svg-element-4 { bottom: 30px; left: 300px;
+width: 50px; }
+#svg-element-5 { bottom: 5px; left: 400px; width: 50px;}
+#svg-element-6 { top: 200px; left: 420px;
+width: 50px; }
 
 .background-image img {
-    width: 100%;
-    height: auto;
-    display: block; /* Ensure the image behaves as a block element */
-    position: relative; /* Ensure the image stays within its parent */
-    z-index: 1; /* Lower z-index to make sure it's behind text bubbles */
+    position: relative;
+    z-index: 1; /* Ensure the background image appears behind SVG elements */
 }
 
-.text-bubble {
-    position: absolute;
-    font-family: 'Comic Sans MS', 'Arial', sans-serif; /* Use a comic-style font */
-    font-size: 16px;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px; /* Rounded corners for the rectangles */
-    background-color: #000; /* Black background color */
-    z-index: 2; /* Ensure the text bubbles appear above the images */
+/* panel-2 */
+
+.background-image-2 {
+    position: relative;
+    margin-top: 100px;
 }
 
-
-
-.dynamic {
-    /* Example styles for dynamic text bubble */
-    animation: pulse 0.5s infinite alternate;
+.background-image-2 img {
+    position: relative;
+    z-index: 1; /* Ensure the background image appears behind SVG elements */
 }
 
+#svg-element-7 { bottom: 420px; left: 250px; width:50px}
+#svg-element-8 { bottom: 100px; left: 150px; }
+#svg-element-9 { bottom: 50px; left: 420px;  }
 
-/* Adjust the position of manga text bubbles */
-.manga-text.left {
-    top: 20px; /* Adjust the top position as needed */
-    left: 20px; /* Adjust the left position as needed */
-}
 
-.manga-text.right {
-    top: 20px; /* Adjust the top position as needed */
-    right: 20px; /* Adjust the right position as needed */
-}
+/* animations */
 
-.manga-text.center {
-    top: 50%; /* Place text in the center */
-    left: 50%; /* Place text in the center */
-    transform: translate(-50%, -50%); /* Center text */
+@keyframes slide {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
 
-@keyframes pulse {
-    from {
-        transform: scale(1);
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+    
+
+    /* comic */
+
+/* panel-1 */
+    
+    .svg-element {
+        width: 200px; /* Adjust width as needed */
+        height: auto; /* Automatically adjust height */
     }
-    to {
-        transform: scale(1.1);
+
+    /* Adjust the position of each SVG element for tablet */
+    #svg-element-1 { bottom: 850px; left: 350px; }
+    #svg-element-2 { bottom: 600px; left: 760px;  width: 100px;}
+    #svg-element-3 { bottom: 440px; left: 300px; width: 100px;}
+    #svg-element-4 { bottom: 400px; left: 400px; width: 100px;}
+    #svg-element-5 { bottom: 400px; left: 650px; width: 100px;}
+    #svg-element-6 { top: -140px; left: 650px; width: 100px;}
+
+
+    #svg-element-7 { bottom: 800px; left: 300px; width:100px}
+    #svg-element-8 { bottom: 300px; left: 150px; }
+    #svg-element-9 { bottom: 350px; left: 700px;  }
+
+    
+    
+    
+    
+    /* panel-2 */
+
+    .background-image-2 {
+        position: relative;
+        margin-top: -10px;
     }
 }
 
-@media screen and (min-width: 768px) {
-    /* Adjust styles for tablets and desktop */
-    .text-bubble {
-        font-size: 20px; /* Example adjustment for larger screens */
+
+
+/* Adjust the size of SVG elements for desktop */
+@media screen and (min-width: 1200px) {
+
+    /* comic */
+
+/* panel-1 */
+    .svg-element {
+        width: 300px; /* Adjust width as needed */
+        height: auto; /* Automatically adjust height */
     }
+
+    /* Adjust the position of each SVG element for desktop */
+    #svg-element-1 { bottom: 1200px; left: 500px;}
+    #svg-element-2 { bottom: 950px; left: 1000px; width: 200px}
+    #svg-element-3 { bottom: 850px; left: 340px;  width: 200px}
+    #svg-element-4 { bottom: 850px; left: 500px;  width: 200px}
+    #svg-element-5 { bottom: 1000px; left: 820px;  width: 200px}
+    #svg-element-6 { top: -700px; left: 900px;  width: 200px}
+    
+    
+    
+    /* panel-2 */
+
+    .background-image-2 {
+        position: relative;
+        margin-top: -500px;
+    }
+
+    #svg-element-7 { bottom: 1200px; left: 400px; width:200px}
+    #svg-element-8 { bottom: 600px; left: 150px; }
+    #svg-element-9 { bottom: 700px; left: 900px; }
 }
 
-@media screen and (min-width: 1024px) {
-    /* Adjust styles for larger desktop screens */
-    .text-bubble {
-        font-size: 24px; /* Example adjustment for larger screens */
-    }
-}
